@@ -11,14 +11,26 @@ provider "aws" {
   region = var.region
 }
 
+data "aws_subnet" "public_subnet" {
+  vpc_id = var.vpc
+  availability_zone = var.availability_zone
+  filter {
+    name   = "tag:Name"
+    values = ["Conexions public*"]
+  }
+}
+
 module "conexions_us_build_server" {
   source = "/home/joel/Source/terraform-aws-web-application/"
 
   availability_zone    = var.availability_zone
+  ebs_size             = var.ebs_size
   has_public_ip        = var.web_server_has_public_ip
   hostname             = var.hostname
   iam_instance_profile = var.iam_instance_profile
+  key_name             = var.key_name
   region               = var.region
   standard_tags        = var.standard_tags
+  subnet_id            = data.aws_subnet.public_subnet.id
   vpc                  = var.vpc
 }

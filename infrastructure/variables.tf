@@ -9,6 +9,10 @@ variable "region" {
   default = "us-east-1"
 }
 
+variable "ebs_size" {
+  type = number
+}
+
 ##################### Networking
 variable "hostname" {
   type = string
@@ -26,7 +30,12 @@ variable "vpc" {
 #################### Security
 variable "iam_instance_profile" {
   type    = string
-  default = "arn:aws:iam::698732043690:instance-profile/web_server_conexions.us"
+  default = "web_server_conexions.us"
+}
+
+variable "key_name" {
+  type    = string
+  default = "connexions"
 }
 
 #################### Tags
