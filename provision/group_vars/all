@@ -1,0 +1,6 @@
+hostname: build.conexions.us
+application_port: 8080
+mount_points: { nvme1n1: /var/cache/jenkins }
+fstype: xfs
+acme_certificates: true
+admin_email: joel@conexions.me

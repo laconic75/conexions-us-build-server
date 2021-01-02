@@ -1,0 +1,10 @@
+---
+roles:
+  - name: jenkins
+    src: git@github.com:laconic75/ansible-centos8-jenkins.git
+    scm: git
+    version: master
+  - name: httpd-reverse-proxy
+    src: git@github.com:laconic75/ansible-centos8-httpd-reverse-proxy.git
+    scm: git
+    version: master

@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+    #   vars_files:
+    #     - group_vars/jenkins.vault.yml
+
+  roles: 
+    # - { role: general, tags: ['general'] }
+    # - { role: httpd-reverse-proxy-testing, tags: ['proxy'] }
+    - { role: jenkins, tags: ['application'] }
