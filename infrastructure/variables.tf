@@ -27,6 +27,11 @@ variable "vpc" {
   type = string
 }
 
+variable "subnet_name" {
+  type    = string
+  default = "Conexions public*"
+}
+
 #################### Security
 variable "iam_instance_profile" {
   type    = string

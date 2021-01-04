@@ -16,12 +16,12 @@ data "aws_subnet" "public_subnet" {
   availability_zone = var.availability_zone
   filter {
     name   = "tag:Name"
-    values = ["Conexions public*"]
+    values = [var.subnet_name]
   }
 }
 
 module "conexions_us_build_server" {
-  source = "/home/joel/Source/terraform-aws-web-application/"
+  source = "git@github.com:laconic75/terraform-aws-web-application.git"
 
   availability_zone    = var.availability_zone
   ebs_size             = var.ebs_size
